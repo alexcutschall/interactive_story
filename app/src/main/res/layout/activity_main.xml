@@ -35,10 +35,9 @@
         android:layout_width="0dp"
         android:layout_height="48dp"
         android:background="@android:color/white"
-        android:capitalize="words"
         android:ems="10"
         android:hint="@string/enter_your_name"
-        android:inputType="textPersonName"
+        android:inputType="textCapWords"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

@@ -2,6 +2,12 @@ package com.example.alexcutschall.interactivestory.model;
 
 public class Choice {
     private int textId;
+
+    public Choice(int textId, int nextPage) {
+        this.textId = textId;
+        this.nextPage = nextPage;
+    }
+
     private int nextPage;
 
     public int getTextId() {

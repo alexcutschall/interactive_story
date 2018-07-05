@@ -14,7 +14,7 @@ public class Page {
         this.choice2 = choice2;
     }
 
-    public Boolean getFinalPage() {
+    public Boolean isFinalPage() {
         return isFinalPage;
     }
 

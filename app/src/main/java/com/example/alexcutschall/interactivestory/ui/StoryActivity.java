@@ -15,9 +15,12 @@ import com.example.alexcutschall.interactivestory.R;
 import com.example.alexcutschall.interactivestory.model.Page;
 import com.example.alexcutschall.interactivestory.model.Story;
 
+import java.util.Stack;
+
 public class StoryActivity extends AppCompatActivity {
 
     public final static String TAG = StoryActivity.class.getSimpleName();
+    private Stack<Integer> pageStack = new Stack<Integer>();
     private Story story;
     private String name;
     private ImageView storyImageView;
@@ -46,6 +49,7 @@ public class StoryActivity extends AppCompatActivity {
     }
 
     private void loadPage(int pageNumber) {
+        pageStack.push(pageNumber);
         final Page page = story.getPage(pageNumber);
 
         Drawable image = ContextCompat.getDrawable(this, page.getImageId());
@@ -92,5 +96,15 @@ public class StoryActivity extends AppCompatActivity {
                 loadPage(nextPage);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed() {
+        pageStack.pop();
+        if (pageStack.isEmpty()) {
+            super.onBackPressed();
+        } else {
+            loadPage(pageStack.pop());
+        }
     }
 }
